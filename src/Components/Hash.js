@@ -29,11 +29,13 @@ export const Hash = ({ passwords }) => {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(result);
-    setAlert(true);
-    setTimeout(() => {
-      setAlert(false);
-    }, 2000);
+    if (result.length > 0) {
+      navigator.clipboard.writeText(result);
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 2000);
+    }
   };
 
   return (
