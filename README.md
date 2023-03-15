@@ -7,4 +7,4 @@ React,
 Node v16.15.0,
 TailwindCSS
 
-![Untitled](https://user-images.githubusercontent.com/22819317/225426308-fc28da0e-3856-4da4-b802-0daaa35cd7df.png)
+![Untitled](https://user-images.githubusercontent.com/22819317/225426549-9e403eaf-84da-4d1e-b6a6-bea8702ba8d0.png)
