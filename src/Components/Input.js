@@ -35,7 +35,7 @@ export const Input = () => {
               </label>
               <input
                 type={passwords[item].visible ? "text" : "password"}
-                className="block p-2.5 w-full z-20 text-sm rounded-lg border-l-2 border dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="block p-2.5 w-full z-20 text-sm rounded-lg border-l-2 border dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="••••••••"
                 maxLength="20"
                 value={passwords[item].value}
@@ -49,7 +49,7 @@ export const Input = () => {
               )}
               <div
                 onClick={() => updateVisible(item)}
-                className="absolute top-7 right-0 p-3 text-sm"
+                className="absolute top-7 right-0 p-3 text-sm text-gray-500"
               >
                 {passwords[item].visible ? (
                   <AiFillEye size="20" />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiFillCopy } from "react-icons/ai";
+import { BsFillClipboardCheckFill, BsFillClipboardFill } from "react-icons/bs";
 
 export const Hash = ({ passwords }) => {
   const [result, setResult] = useState("");
@@ -34,13 +34,13 @@ export const Hash = ({ passwords }) => {
       setAlert(true);
       setTimeout(() => {
         setAlert(false);
-      }, 2000);
+      }, 1000);
     }
   };
 
   return (
     <div className="flex relative flex-col mt-5 items-between justify-center bg-500-red">
-      <div className="flex items-center sm:mx-10 justify-end">
+      <div className="flex items-center justify-end">
         <button
           onClick={filter}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -49,7 +49,7 @@ export const Hash = ({ passwords }) => {
         </button>
       </div>
       <div className="relative w-auto h-auto ">
-        <span>SHA512 :</span>
+        <span>SHA512:</span>
         <div
           onClick={copyToClipboard}
           type="text"
@@ -57,17 +57,15 @@ export const Hash = ({ passwords }) => {
         >
           {result}
         </div>
-        <div className="absolute bottom-0 right-0 p-3 text-sm flex">
-          <p
-            className={`${!alert && "invisible"} pr-1 text-green-500 font-bold`}
-          >
-            Copied!
-          </p>
-          <AiFillCopy
-            onClick={copyToClipboard}
-            size="20"
-            className={`${alert && "animate-spin"}`}
-          />
+        <div
+          onClick={copyToClipboard}
+          className="absolute bottom-0 right-0 p-3 text-sm flex cursor-pointer"
+        >
+          {alert ? (
+            <BsFillClipboardCheckFill size="20" className="text-green-500" />
+          ) : (
+            <BsFillClipboardFill size="20" className="text-gray-500" />
+          )}
         </div>
       </div>
     </div>
