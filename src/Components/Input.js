@@ -26,11 +26,11 @@ export const Input = () => {
 
   return (
     <>
-      <div className="bg-white border border-gray-200 rounded-lg shadow mx-3 mt-3 p-5  dark:bg-gray-800 dark:border-gray-700">
+      <div className="border rounded-lg shadow mx-3 mt-3 p-5 bg-gray-800 border-gray-700">
         <form className="space-y-2">
           {Object.keys(passwords).map((item, index) => (
             <div key={index} className="relative">
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              <label className="block mb-2 text-sm font-mediumtext-white">
                 {item}
               </label>
               <input
