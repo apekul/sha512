@@ -1,4 +1,4 @@
-## Hashing password application
+## SHA512 Hashing password application
 
 preview: https://neon-lolly-4fed43.netlify.app/
 
