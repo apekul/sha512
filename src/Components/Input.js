@@ -44,7 +44,7 @@ export const Input = () => {
               {item === "password" && (
                 <p className="text-gray-400 p-1 text-sm text-center sm:text-start">
                   Your Password must be 8-20 characters long and be combination
-                  of uppercase letters, lowercase letters, numbers, and symbols.{" "}
+                  of uppercase letters, lowercase letters, numbers and symbols.{" "}
                 </p>
               )}
               <div

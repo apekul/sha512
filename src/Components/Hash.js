@@ -53,7 +53,7 @@ export const Hash = ({ passwords }) => {
         <div
           onClick={copyToClipboard}
           type="text"
-          className="cursor-pointer break-words p-2.5 pb-10 sm:h-24 text-sm focus text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="cursor-pointer select-none break-words p-2.5 pb-10 sm:h-24 text-sm focus text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           {result}
         </div>
@@ -63,7 +63,11 @@ export const Hash = ({ passwords }) => {
           >
             Copied!
           </p>
-          <AiFillCopy size="20" className={`${alert && "animate-spin"}`} />
+          <AiFillCopy
+            onClick={copyToClipboard}
+            size="20"
+            className={`${alert && "animate-spin"}`}
+          />
         </div>
       </div>
     </div>
