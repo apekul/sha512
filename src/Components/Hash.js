@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BsFillClipboardCheckFill, BsFillClipboardFill } from "react-icons/bs";
 
-export const Hash = ({ passwords }) => {
+export const Hash = ({ password, generate }) => {
   const [result, setResult] = useState("");
-  const [alert, setAlert] = useState(false);
+  const [copyAlert, setCopyAlert] = useState(false);
 
   async function Sha512(str) {
     return crypto.subtle
@@ -15,15 +15,6 @@ export const Hash = ({ passwords }) => {
       });
   }
 
-  const filter = () => {
-    let p = passwords.password.value;
-    let c = passwords.confirm.value;
-    let regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,20}$/;
-    if (regEx.test(p) && p === c) {
-      encrypt(p);
-    }
-  };
-
   const encrypt = (item) => {
     Sha512(item).then((x) => setResult(x));
   };
@@ -31,29 +22,23 @@ export const Hash = ({ passwords }) => {
   const copyToClipboard = () => {
     if (result.length > 0) {
       navigator.clipboard.writeText(result);
-      setAlert(true);
+      setCopyAlert(true);
       setTimeout(() => {
-        setAlert(false);
+        setCopyAlert(false);
       }, 1000);
     }
   };
 
+  generate && encrypt(password);
+
   return (
     <div className="flex relative flex-col mt-5 items-between justify-center bg-500-red">
-      <div className="flex items-center justify-end">
-        <button
-          onClick={filter}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Encrypt
-        </button>
-      </div>
       <div className="relative w-auto h-auto">
         <span className="select-none">SHA512:</span>
         <div
           onClick={copyToClipboard}
           type="text"
-          className="cursor-pointer break-words p-2.5 pb-10 sm:h-24 text-sm focus text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="cursor-pointer break-words p-2.5 pb-10 sm:h-24 text-sm focus bg-gray-50 rounded-lg border border-gray-300"
         >
           {result}
         </div>
@@ -61,10 +46,10 @@ export const Hash = ({ passwords }) => {
           onClick={copyToClipboard}
           className="absolute bottom-0 right-0 p-3 text-sm flex cursor-pointer"
         >
-          {alert ? (
+          {copyAlert ? (
             <BsFillClipboardCheckFill size="20" className="text-green-500" />
           ) : (
-            <BsFillClipboardFill size="20" className="text-gray-500" />
+            <BsFillClipboardFill size="20" className="text-gray-300" />
           )}
         </div>
       </div>
