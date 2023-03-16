@@ -14,7 +14,11 @@ export const Input = () => {
       [name]: {
         ...fields[name],
         [key]: value,
-        valid: isValid(fields, name, value),
+        valid: isValid(
+          fields,
+          name,
+          key === "value" ? value : fields[name].value
+        ),
       },
     });
   };
