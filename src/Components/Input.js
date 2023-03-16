@@ -28,15 +28,11 @@ export const Input = () => {
       if (fields.password.value !== value) return "hasła musza się zgadzać";
       return true;
     }
-    if (false === /[a-z]/g.test(value))
-      return "Wymagana przynajmniej 1 mała litera";
-    if (false === /[A-Z]/g.test(value))
-      return "Wymagana przynajmniej 1 duża litera";
-    if (false === /[0-9]/g.test(value)) return "Wymagana przynajmniej 1 liczba";
-    if (false === /[#$@!%&*?]/g.test(value))
-      return "Wymagana przynajmniej 1 znak specjalny";
-    if (false === /.{8,}/g.test(value))
-      return "Wymagana długośc to minimum 8 znaków";
+    if (false === /[a-z]/g.test(value)) return "Required 1 lowercase letter";
+    if (false === /[A-Z]/g.test(value)) return "Required 1 uppercase letter";
+    if (false === /[0-9]/g.test(value)) return "Required 1 digit";
+    if (false === /[#$@!%&*?]/g.test(value)) return "Required 1 special symbol";
+    if (false === /.{8,}/g.test(value)) return "Required length 8";
 
     return true;
   };
