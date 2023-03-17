@@ -25,7 +25,7 @@ export const Input = () => {
 
   const isValid = (fields, name, value) => {
     if (name === "confirm") {
-      if (fields.password.value !== value) return "hasła musza się zgadzać";
+      if (fields.password.value !== value) return "Passwords need to match";
       return true;
     }
     if (false === /[a-z]/g.test(value)) return "Required 1 lowercase letter";
@@ -43,7 +43,7 @@ export const Input = () => {
         <form className="space-y-2">
           {Object.keys(fields).map((item, index) => (
             <div key={index} className="relative">
-              <label className="block mb-2 text-sm font-medium">
+              <label className="block mb-2 select-none text-sm font-medium">
                 {item[0].toUpperCase() + item.slice(1)}
                 {index === 1 && " Password"}
               </label>
@@ -60,7 +60,7 @@ export const Input = () => {
               />
 
               {item === "password" && (
-                <p className="p-1 text-xs text-center sm:text-start text-gray-400">
+                <p className="p-1 text-xs select-none text-center sm:text-start text-gray-400">
                   Your password must be 8-20 characters long, contain uppercase
                   and lowercase letters, numbers and symbols.{" "}
                 </p>
